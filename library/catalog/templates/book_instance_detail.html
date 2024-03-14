@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Book Instance: {{bookinstance.book}}</h1>
+<p>Status: {{ bookinstance.status}}</p>
+<p>Borrower: {{bookinstance.borrower}}</p>
+<p>Language: {{bookinstance.language}}</p>
+<p>ISBN: {{bookinstance.isbn}}</p>
+
+
+{% if bookinstance.status == 'Available' %}
+    <form action="{% url 'reserve_book' bookinstance.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Reserve</button>
+    </form>
+{% endif %}
+
+
+{% endblock %}

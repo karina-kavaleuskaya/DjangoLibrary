@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Reserved Books</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Due Back</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book_instance in reserved_books %}
+        <tr>
+          <td>{{ book_instance.book.title }}</td>
+          <td>{{ book_instance.due_book }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
